@@ -57,7 +57,8 @@ class WebsiteVisitors extends React.Component {
         return(
             <div> 
                 <h2>Website Visitors</h2> <br></br> 
-                <h3> 821</h3 ><br></br>                 
+                <h3> 821</h3 ><br></br>
+                <div id ='Web-innerDiv' ></div>                 
             </div>
         )
     }
@@ -71,8 +72,7 @@ class WebsiteVisitors extends React.Component {
                     <div class='data'> <Reviews/>  </div>            
                     <div class='data'> <AverageRating/>  </div>            
                     <div class='data'> <Sentiment/>  </div>            
-                    <div class='WebVisitor'> <WebsiteVisitors/>  
-                        <div id ='Web-innerDiv' ></div>
+                    <div class='WebVisitor'> <WebsiteVisitors/>                          
                     </div>            
                 </div>
             </div>             
