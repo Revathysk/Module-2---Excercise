@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+*{margin:0;
+border:0;
+}
+
+#container {    
+    margin: 1em;
+    padding: 1em;
+    font-family: 'PT Sans', sans-serif;
+    background: #FEFFE9;
+    width:100vw;
+    height:100vh;
+  }
+  
+  
+  .main-div{
+    display:flex;
+    margin: auto;    
+    box-shadow: 0 0 8px lightslategray;
+    padding: 1em;
+    background: white;
+    width:90vw;
+    height:90vh;
+    justify-content: space-evenly;    
+  } 
+
+.itemslist, .topurchase
+  { display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 40%;    
+    height:50%;
+    box-shadow: 0 0 8px lightslategray;
+    padding: 1em;
+    background: white;
+  } 
+
+button{
+  width:10em;
+  height:2em;
+  background-color: burlywood;
+}
