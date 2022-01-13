@@ -4,34 +4,40 @@
 border:0;
 }
 
-#container {    
+body{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#container {   
     margin: 1em;
     padding: 1em;
     font-family: 'PT Sans', sans-serif;
     background: #FEFFE9;
-    width:100vw;
-    height:100vh;
+    width:50vw;
+    height:80vh;
   }
-  
-  
+    
   .main-div{
-    display:flex;
+    display:flex;    
+    align-items:center;
     margin: auto;    
     box-shadow: 0 0 8px lightslategray;
     padding: 1em;
     background: white;
-    width:90vw;
-    height:90vh;
+    width:50vw;
+    height:70vh;
     justify-content: space-evenly;    
   } 
 
-.itemslist, .topurchase
+.grocerylist, .purchaselist
   { display:flex;
     flex-direction: column;
     justify-content: space-evenly;
     margin: auto;
-    width: 40%;    
-    height:50%;
+    width: 15vw;    
+    height:40vh;
     box-shadow: 0 0 8px lightslategray;
     padding: 1em;
     background: white;
@@ -40,5 +46,25 @@ border:0;
 button{
   width:10em;
   height:2em;
-  background-color: burlywood;
+  background-color: rgba(233, 130, 13, 0.788);
 }
+
+li:nth-last-child(2n+1){
+background-color:wheat;
+}
+
+
+form {
+  display:flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  vertical-align: top;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  margin-right: 0;  
+  }
+
+  input{
+    border:solid black;
+  }
