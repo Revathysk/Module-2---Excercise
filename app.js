@@ -86,7 +86,7 @@ class App extends React.Component {
                   
                 </div>
 
-                <div class="grocerylist">
+                <div class="glist">
                     <h1> Grocery List </h1>  
                     <ul>
                         {this.state.gList.map((grocerylist) =>
@@ -96,12 +96,12 @@ class App extends React.Component {
                     </ul>
                 </div>
                 
-                <div class="purchaselist">
+                <div class="glist">
                     <h1> Purchase List </h1>                        
                     
                     <ul>
                         {   this.state.purchaseItems.map
-                            ( (purchaselist) => <Purchase purchaselist={purchaselist} handleRemove={this.removeItem}/> )
+                            ( (purchaselist) => !purchaselist.isPurchased ? <Purchase purchaselist={purchaselist} handleRemove={this.removeItem}/> : null)
                                 // ( <li > {purchaselist.item} - {purchaselist.brand} - {purchaselist.quantity}  
                                 //  <button onClick={()=> this.removeItem(purchaselist) } id='Remove'> Remove </button> 
                                 // </li>)                                                           

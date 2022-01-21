@@ -33,27 +33,42 @@ body{
     justify-content: space-evenly;    
   } 
 
-.grocerylist, .purchaselist
+.glist
   { display:flex;
+    align-items:center;
     flex-direction: column;
     justify-content: space-evenly;
     margin: auto;
-    width: 25vw;    
+    width: 30vw;    
     height:40vh;
     box-shadow: 0 0 8px lightslategray;
     padding: 1em;
     background: white;
   } 
 
-button{
+  .itemlist
+  { display:flex;
+    align-items:center;    
+    justify-content: space-between;
+    margin: auto;
+    width: 20vw;    
+    height:1vh;
+    box-shadow: 0 0 8px lightslategray;
+    padding: 1em;
+    background: white;
+  } 
+
+ button{
   width:8em;
   height:2em;
   background-color: rgba(233, 130, 13, 0.788);
 }
 
-li:nth-last-child(2n+1){
-background-color:wheat;
+#grocery,#purchase{
+display:flex;
+justify-content: left ;
 }
+
 
 
 form {
