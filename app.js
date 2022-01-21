@@ -4,6 +4,8 @@
 //     quantity: 0,
 //     isPurchased: false
 
+
+
 class App extends React.Component {
 
     state = {
@@ -11,7 +13,30 @@ class App extends React.Component {
         item:'',
         brand:'',
         quantity:'1',        
-        PurchaseItems:[]
+        purchaseItems:[]
+    }
+
+    removeItem=(item)=>{
+       
+        
+       console.log('remove:',item)
+       let index = this.state.purchaseItems.indexOf(item);
+       console.log('index',index)
+        if (index > -1) {
+            console.log('array slice')
+            console.log('purchase:', this.state.purchaseItems[index])
+            this.state.purchaseItems.splice(index, 1) }
+       this.setState({
+           purchaseItems: this.state.purchaseItems
+       })        
+
+    }
+
+    addtoPurchase=(item)=> {
+        this.setState({
+        purchaseItems: [item,...this.state.purchaseItems]
+        })
+         
     }
     
     handleChange=(event)=>{
@@ -21,8 +46,11 @@ class App extends React.Component {
     }
 
     handleAdd=(event)=>{
-        
-        console.log('in handleAdd to list',this.state.item)       
+
+        event.preventDefault();
+
+        // console.log('in handleAdd to list',this.state.item)  
+              
         const newItem = {
             item: this.state.item,
             brand: this.state.brand,
@@ -31,16 +59,15 @@ class App extends React.Component {
             isPurchased:false
         }
 
-         this.setState({
+        this.setState({
              gList: [newItem,...this.state.gList],
              item:'',
              brand:'',
              quantity:'1',
-         } )       
+        } )       
     }
 
-    render(){
-        console.log('APP',this.state.gList)       
+    render()    {    
         
         return(            
             <div class ="main-div">
@@ -48,7 +75,7 @@ class App extends React.Component {
                 <div id="additems">
                     <form>
                         <label htmlFor="Itemname"> Item Name</label>
-                        <input id="itemname" type="text" value={this.state.item} onChange={this.handleChange}/>
+                        <input id="item" type="text" value={this.state.item} onChange={this.handleChange}/>
                         <label htmlFor="Itembrand"> Item Brand</label>
                         <input id="brand" type="text" value={this.state.brand} onChange={this.handleChange}/>
                         <label htmlFor="quantity"> Quantity </label>
@@ -60,21 +87,28 @@ class App extends React.Component {
                 </div>
 
                 <div class="grocerylist">
-                    <h1> Template List </h1>  
-
+                    <h1> Grocery List </h1>  
                     <ul>
-                        { this.state.gList.map((grocerylist) =>                        
-                        <li> {grocerylist.item} - {grocerylist.brand} - {grocerylist.quantity} </li> )
-                        } 
+                        {this.state.gList.map((grocerylist) =>
+                         <Grocery grocerylist={grocerylist} handlePurchase={this.addtoPurchase}/>                   
+                        )
+                    }                    
                     </ul>
                 </div>
                 
                 <div class="purchaselist">
-                    <h1> Purchase List </h1>                               
-                    <ul>                         
+                    <h1> Purchase List </h1>                        
+                    
+                    <ul>
+                        {   this.state.purchaseItems.map
+                            ( (purchaselist) => <Purchase purchaselist={purchaselist} handleRemove={this.removeItem}/> )
+                                // ( <li > {purchaselist.item} - {purchaselist.brand} - {purchaselist.quantity}  
+                                //  <button onClick={()=> this.removeItem(purchaselist) } id='Remove'> Remove </button> 
+                                // </li>)                                                           
+                        }                                            
                     </ul>
-
-                    <button id='Remove '> Remove </button>
+                    
+                    {}
                 </div>
 
             </div>
